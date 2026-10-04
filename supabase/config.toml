@@ -1,0 +1,16 @@
+project_id = "pnutrdmcyzyghcepfdve"
+
+[functions.transcribe-voice]
+verify_jwt = false
+
+[functions.analyze-sentiment]
+verify_jwt = false
+
+[functions.analyze-chart]
+verify_jwt = false
+
+[functions.binance-webhook]
+verify_jwt = false
+
+[functions.telegram-auth]
+verify_jwt = false

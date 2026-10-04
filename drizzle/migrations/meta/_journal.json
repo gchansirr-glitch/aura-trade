@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790909601764,
+      "tag": "0000_telegram_links",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790910459036,
+      "tag": "0001_chart_analyses",
+      "breakpoints": true
+    }
+  ]
+}

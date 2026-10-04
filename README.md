@@ -1,2 +1,3 @@
-# AURA TRADE
-AI Trading Journal - built with Lovable
+# Welcome to your Lovable project
+
+TODO: Document your project here
