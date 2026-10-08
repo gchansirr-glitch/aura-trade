@@ -3,11 +3,19 @@ import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 import { brokeredPreviewStorage } from './previewAuthStorage';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL ??
+  import.meta.env.NEXT_PUBLIC_SUPABASE_URL ??
+  import.meta.env.SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY =
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ??
+  import.meta.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+  import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
+  import.meta.env.SUPABASE_PUBLISHABLE_KEY ??
+  import.meta.env.SUPABASE_ANON_KEY;
 
 if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
-  throw new Error("Supabase configuration is missing. Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.");
+  throw new Error("Supabase configuration is missing. Add the Supabase URL and publishable key to the Vercel project.");
 }
 
 // Import the supabase client like this:
