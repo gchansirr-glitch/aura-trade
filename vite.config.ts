@@ -6,6 +6,7 @@ import path from "path";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
+    allowedHosts: true,
     port: 8080,
     hmr: {
       overlay: false,
