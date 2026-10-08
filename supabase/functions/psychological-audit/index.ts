@@ -51,10 +51,10 @@ serve(async (req) => {
       `Trade ${i + 1}: ${e.pair} ${e.direction} | Outcome: ${e.outcome} | Risk: ${e.risk_percent ?? "n/a"}% | Sentiment: ${e.sentiment ?? "n/a"} | Notes: ${e.notes}`
     ).join("\n");
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY")!;
-    const resp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY")!;
+    const resp = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
-      headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+      headers: { Authorization: `Bearer ${OPENAI_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         model: "google/gemini-3-flash-preview",
         messages: [

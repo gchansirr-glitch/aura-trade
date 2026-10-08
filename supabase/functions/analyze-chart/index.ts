@@ -63,8 +63,8 @@ Deno.serve(async (req) => {
     const { imageBase64, mimeType, newsContext } = await req.json();
     if (!imageBase64) throw new Error("imageBase64 is required");
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY not configured");
+    const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
+    if (!OPENAI_API_KEY) throw new Error("OPENAI_API_KEY not configured");
 
     // Fetch upcoming high-impact news for context
     let autoNews = "";
@@ -92,10 +92,10 @@ Deno.serve(async (req) => {
     const dataUrl = `data:${mimeType || "image/png"};base64,${imageBase64}`;
     const userText = `Analyze this chart strictly per the JSON schema. Enforce RR ≥ 1:3.${autoNews}${newsContext ? `\n\nUser-provided news/context:\n${newsContext}` : ""}`;
 
-    const resp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const resp = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        Authorization: `Bearer ${OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

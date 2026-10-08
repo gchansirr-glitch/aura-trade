@@ -157,6 +157,9 @@ const ChartAnalysisPage = () => {
           <p className="text-sm text-muted-foreground">
             SMC × ICT × News · RR ≥ 1:3 enforced · No random signals
           </p>
+          <p className="mt-2 text-xs font-medium text-amber-700 dark:text-amber-400">
+            AI signals can be wrong. This is not financial advice.
+          </p>
         </div>
 
         <div
